@@ -97,7 +97,7 @@ export default class DaysView extends View {
       Array.from(this.dow.children).forEach((el, index) => {
         const dow = (this.weekStart + index) % 7;
         el.textContent = this.dayNames[dow];
-        el.className = this.daysOfWeekDisabled.includes(dow) ? 'dow disabled text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400 cursor-not-allowed' : 'dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400';
+        el.className = this.daysOfWeekDisabled.includes(dow) ? 'dow disabled text-center h-6 leading-6 text-sm font-medium text-gray-300 dark:text-gray-300 cursor-not-allowed' : 'dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400';
       });
     }
   }
@@ -164,10 +164,12 @@ export default class DaysView extends View {
         classList.add('today', 'bg-gray-100', 'dark:bg-gray-600');
       }
       if (current < this.minDate || current > this.maxDate || this.disabled.includes(current)) {
-        classList.add('disabled', 'cursor-not-allowed');
+        classList.remove( 'rounded-l-lg', 'rounded-r-lg', 'text-gray-900', 'cursor-pointer', 'text-gray-500')
+        classList.add('disabled', 'cursor-not-allowed', 'text-gray-200');
       }
       if (this.daysOfWeekDisabled.includes(day)) {
-        classList.add('disabled', 'cursor-not-allowed');
+        classList.remove( 'rounded-l-lg', 'rounded-r-lg', 'text-gray-900', 'cursor-pointer', 'text-gray-500')
+        classList.add('disabled', 'cursor-not-allowed', 'text-gray-200');
         pushUnique(this.disabled, current);
       }
       if (this.daysOfWeekHighlighted.includes(day)) {
