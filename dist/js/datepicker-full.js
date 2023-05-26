@@ -409,6 +409,29 @@
       today: "Today",
       clear: "Clear",
       titleFormat: "MM y"
+    },
+    es: {
+      days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+      daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+      daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+      months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+      today: "Hoy",
+      monthsTitle: "Meses",
+      clear: "Borrar",
+      weekStart: 1,
+      format: "dd/mm/yyyy"
+    },
+    pt: {
+      days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+      daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+      daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa"],
+      months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+      monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+      today: "Hoje",
+      monthsTitle: "Meses",
+      clear: "Limpar",
+      format: "dd/mm/yyyy"
     }
   };
 
@@ -931,7 +954,7 @@
         Array.from(this.dow.children).forEach((el, index) => {
           const dow = (this.weekStart + index) % 7;
           el.textContent = this.dayNames[dow];
-          el.className = this.daysOfWeekDisabled.includes(dow) ? 'dow disabled text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400 cursor-not-allowed' : 'dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400';
+          el.className = this.daysOfWeekDisabled.includes(dow) ? 'dow disabled text-center h-6 leading-6 text-sm font-medium text-gray-300 dark:text-gray-300 cursor-not-allowed' : 'dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400';
         });
       }
     }
@@ -998,10 +1021,12 @@
           classList.add('today', 'bg-gray-100', 'dark:bg-gray-600');
         }
         if (current < this.minDate || current > this.maxDate || this.disabled.includes(current)) {
-          classList.add('disabled', 'cursor-not-allowed');
+          classList.remove( 'rounded-l-lg', 'rounded-r-lg', 'text-gray-900', 'cursor-pointer', 'text-gray-500');
+          classList.add('disabled', 'cursor-not-allowed', 'text-gray-200');
         }
         if (this.daysOfWeekDisabled.includes(day)) {
-          classList.add('disabled', 'cursor-not-allowed');
+          classList.remove( 'rounded-l-lg', 'rounded-r-lg', 'text-gray-900', 'cursor-pointer', 'text-gray-500');
+          classList.add('disabled', 'cursor-not-allowed', 'text-gray-200');
           pushUnique(this.disabled, current);
         }
         if (this.daysOfWeekHighlighted.includes(day)) {
