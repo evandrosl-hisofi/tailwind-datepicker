@@ -22,7 +22,7 @@ export const locales = {
     weekStart: 1,
     format: "dd/mm/yyyy"
   },
-  'pt-BR': {
+  pt: {
     days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
     daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
     daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa"],
